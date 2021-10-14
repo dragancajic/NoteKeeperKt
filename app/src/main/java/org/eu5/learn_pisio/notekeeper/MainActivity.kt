@@ -17,8 +17,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val originalValue = textDisplayedValue.text
+            val originalInt = originalValue.toString().toInt()
+            val doubledInt = originalInt * 2
+            textDisplayedValue.text = doubledInt.toString()
+            Snackbar.make(view, "Value $originalInt changed to $doubledInt",
+                Snackbar.LENGTH_LONG).show()
         }
     }
 
